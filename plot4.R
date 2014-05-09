@@ -1,0 +1,16 @@
+#Plot4 on Household power consumption
+
+source("plot2.R")
+source("plot3.R")
+datSub$Voltage<-as.numeric(as.character(datSub$Voltage))
+datSub$Global_reactive_power<-as.numeric(as.character(datSub$Global_reactive_power))
+png("plot4.png",width = 480, height = 480)
+par(mfcol = c(2, 2))
+plot2(date.time,datSub$Global_active_power)
+title(ylab='Global Active Power (kilowatts)')
+plot3()
+plot2(date.time,datSub$Voltage)
+title(ylab='Voltage', xlab="datetime")
+plot2(date.time,datSub$Global_reactive_power)
+title(ylab='Global_reactive_power', xlab="datetime")
+dev.off()
